@@ -99,7 +99,7 @@ nav>ul>li>a:hover {
 }
 
 .form-content {
-    flex: 1 1 50%;
+    flex: 1 1 20%;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -151,13 +151,13 @@ nav>ul>li>a:hover {
 /* Styles pour l'image à droite du formulaire */
 .image-container {
     flex: 1 1 50%;
-    padding: 20px;
     box-sizing: border-box;
 }
 
 .image-container img {
     width: 100%;
-    height: auto;
+    margin-top: 0;
+    height: 320px;
     object-fit: cover;
 }
 
@@ -206,4 +206,11 @@ footer img {
     font-weight: bold;
     color: #000;
     margin-top: 20px;
+}
+
+/* Ajoutez cette classe à votre CSS */
+.image-container.hidden {
+    margin-top: 0;
+    /* Réduit ou supprime la marge au-dessus de l'image du logo */
+    /* Ajustez cette valeur en fonction de l'espacement souhaité */
 }

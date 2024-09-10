@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const formContainer = document.getElementById('formContainer');
     const thankYouMessage = document.getElementById('thankYouMessage');
     const submitButton = document.getElementById('submitButton');
+    const imageContainer = document.querySelector('.image-container');
 
-    if (!formContainer || !thankYouMessage || !submitButton) {
+    if (!formContainer || !thankYouMessage || !submitButton || !imageContainer) {
         console.error('Un ou plusieurs éléments nécessaires sont manquants dans le DOM.');
         return;
     }
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Email envoyé avec succès:', response);
                 formContainer.style.display = 'none'; // Masquer le formulaire
                 thankYouMessage.style.display = 'block'; // Afficher le message de remerciement
+                imageContainer.classList.add('hidden'); // Ajouter la classe pour réduire l'espacement
             }, function(error) {
                 console.error('Erreur lors de l\'envoi de l\'email:', error);
                 alert('Une erreur est survenue. Veuillez réessayer.');

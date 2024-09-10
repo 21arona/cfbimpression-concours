@@ -5,11 +5,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const thankYouMessage = document.getElementById('thankYouMessage');
     const submitButton = document.getElementById('submitButton');
     const imageContainer = document.querySelector('.image-container');
+    const contactPermissionCheckbox = document.getElementById('contactPermission');
 
-    if (!formContainer || !thankYouMessage || !submitButton || !imageContainer) {
+    if (!formContainer || !thankYouMessage || !submitButton || !imageContainer || !contactPermissionCheckbox) {
         console.error('Un ou plusieurs éléments nécessaires sont manquants dans le DOM.');
         return;
     }
+
+    // Fonction pour activer ou désactiver le bouton en fonction de l'état de la case à cocher
+    function updateSubmitButtonState() {
+        submitButton.disabled = !contactPermissionCheckbox.checked;
+    }
+
+    // Appeler la fonction pour initialiser l'état du bouton lors du chargement
+    updateSubmitButtonState();
+
+    // Ajouter un écouteur d'événements pour la case à cocher
+    contactPermissionCheckbox.addEventListener('change', updateSubmitButtonState);
 
     submitButton.addEventListener('click', function () {
         const formData = new FormData(document.getElementById('contactForm'));

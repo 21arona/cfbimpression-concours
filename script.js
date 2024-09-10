@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    emailjs.init('VXrxCjioO6p93R7_9'); // Remplacez par votre propre clé publique
+    emailjs.init('VXrxCjioO6p93R7_9');
 
     const formContainer = document.getElementById('formContainer');
     const thankYouMessage = document.getElementById('thankYouMessage');

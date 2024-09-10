@@ -269,9 +269,11 @@ footer img {
 }
 
 /* Styles réactifs */
-@media (max-width: 368px) {
+@media (max-width: 328px) {
     .menu-toggle {
         display: flex;
+        margin-left: 100px;
+        text-align: right;
     }
 
     #navMenu {

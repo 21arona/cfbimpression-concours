@@ -6,25 +6,41 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitButton = document.getElementById('submitButton');
     const imageContainer = document.querySelector('.image-container');
     const contactPermissionCheckbox = document.getElementById('contactPermission');
-
-    if (!formContainer || !thankYouMessage || !submitButton || !imageContainer || !contactPermissionCheckbox) {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (!formContainer || !thankYouMessage || !submitButton || !imageContainer || !contactPermissionCheckbox || !contactForm) {
         console.error('Un ou plusieurs éléments nécessaires sont manquants dans le DOM.');
         return;
     }
 
-    // Fonction pour activer ou désactiver le bouton en fonction de l'état de la case à cocher
-    function updateSubmitButtonState() {
-        submitButton.disabled = !contactPermissionCheckbox.checked;
+    // Fonction pour valider les champs du formulaire
+    function validateForm() {
+        const name = contactForm.elements['contactName'].value.trim();
+        const email = contactForm.elements['contactEmail'].value.trim();
+        const message = contactForm.elements['contactMessage'].value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Vérifiez si tous les champs sont remplis et si l'email est valide
+        const isFormValid = name && email && message && emailPattern.test(email) && contactPermissionCheckbox.checked;
+
+        submitButton.disabled = !isFormValid; // Activer/désactiver le bouton en fonction de la validité du formulaire
     }
 
     // Appeler la fonction pour initialiser l'état du bouton lors du chargement
-    updateSubmitButtonState();
+    validateForm();
 
-    // Ajouter un écouteur d'événements pour la case à cocher
-    contactPermissionCheckbox.addEventListener('change', updateSubmitButtonState);
+    // Ajouter des écouteurs d'événements pour vérifier la validité du formulaire lors des changements
+    contactForm.addEventListener('input', validateForm);
+    contactPermissionCheckbox.addEventListener('change', validateForm);
 
     submitButton.addEventListener('click', function () {
-        const formData = new FormData(document.getElementById('contactForm'));
+        // Validation finale avant l'envoi
+        if (submitButton.disabled) {
+            alert('Veuillez remplir tous les champs correctement et accepter la communication.');
+            return;
+        }
+
+        const formData = new FormData(contactForm);
 
         const emailData = {
             from_name: formData.get('contactName'),

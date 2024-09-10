@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageContainer = document.querySelector('.image-container');
     const contactPermissionCheckbox = document.getElementById('contactPermission');
     const contactForm = document.getElementById('contactForm');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.getElementById('navMenu');
     
-    if (!formContainer || !thankYouMessage || !submitButton || !imageContainer || !contactPermissionCheckbox || !contactForm) {
+    if (!formContainer || !thankYouMessage || !submitButton || !imageContainer || !contactPermissionCheckbox || !contactForm || !menuToggle || !navMenu) {
         console.error('Un ou plusieurs éléments nécessaires sont manquants dans le DOM.');
         return;
     }
@@ -60,5 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Erreur lors de l\'envoi de l\'email:', error);
                 alert('Une erreur est survenue. Veuillez réessayer.');
             });
+    });
+
+    // Gérer l'ouverture et la fermeture du menu burger
+    menuToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('show');
     });
 });

@@ -280,3 +280,26 @@ main {
         /* Ajouter une marge au-dessus de l'image pour séparer du formulaire */
     }
 }
+
+@media (max-width: 168px) {
+    .main-section {
+        flex-direction: column;
+        /* Passer la disposition en colonne pour les petits écrans */
+        align-items: center;
+        /* Centrer les éléments horizontalement */
+    }
+
+    .form-container, .image-container {
+        max-width: 100%;
+        /* Assurer que les conteneurs prennent toute la largeur disponible */
+        flex: 1 1 100%;
+        /* Les conteneurs prennent toute la largeur disponible */
+        padding: 10px;
+        /* Ajouter un peu de padding pour espacer les éléments */
+    }
+
+    .image-container {
+        margin-top: 20px;
+        /* Ajouter une marge au-dessus de l'image pour séparer du formulaire */
+    }
+}

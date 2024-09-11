@@ -262,44 +262,23 @@ main {
     .main-section {
         flex-direction: column;
         /* Passer la disposition en colonne pour les petits écrans */
-        align-items: center;
-        /* Centrer les éléments horizontalement */
+        align-items: stretch;
+        /* Assurer que les éléments prennent toute la largeur */
     }
 
-    .form-container, .image-container {
+    .form-container {
         max-width: 100%;
-        /* Assurer que les conteneurs prennent toute la largeur disponible */
-        flex: 1 1 100%;
-        /* Les conteneurs prennent toute la largeur disponible */
-        padding: 10px;
-        /* Ajouter un peu de padding pour espacer les éléments */
+        /* Assurer que le formulaire prend toute la largeur disponible */
+        flex: 1 1 auto;
+        /* Permet au formulaire de grandir selon son contenu */
+        margin-bottom: 0;
+        /* Pas de marge en bas */
+        padding: 20px;
+        /* Ajouter du padding autour du formulaire */
     }
 
     .image-container {
-        margin-top: 20px;
-        /* Ajouter une marge au-dessus de l'image pour séparer du formulaire */
-    }
-}
-
-@media (max-width: 168px) {
-    .main-section {
-        flex-direction: column;
-        /* Passer la disposition en colonne pour les petits écrans */
-        align-items: center;
-        /* Centrer les éléments horizontalement */
-    }
-
-    .form-container, .image-container {
-        max-width: 100%;
-        /* Assurer que les conteneurs prennent toute la largeur disponible */
-        flex: 1 1 100%;
-        /* Les conteneurs prennent toute la largeur disponible */
-        padding: 10px;
-        /* Ajouter un peu de padding pour espacer les éléments */
-    }
-
-    .image-container {
-        margin-top: 20px;
-        /* Ajouter une marge au-dessus de l'image pour séparer du formulaire */
+        display: none;
+        /* Masquer le conteneur d'image sur les petits écrans */
     }
 }

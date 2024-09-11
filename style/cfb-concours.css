@@ -1,312 +1,258 @@
-/* Styles globaux pour le corps et la section */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    /* background-color: rgb(204, 248, 233); */
-}
-
-/* Conteneur principal */
-.Home {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Fixer le header en haut de la page */
+/* Fixer la barre de navigation en haut */
 header {
     display: flex;
-    align-items: center;
-    padding: 10px;
-    position: fixed;
-    /* Fixe le header en haut de la page */
-    top: 0;
-    width: 100%;
-    /* Assure que le header prend toute la largeur */
-    background-color: #ffcb05;
-    /* Assure la visibilité du header */
-    z-index: 10;
-    /* Assure que le header reste au-dessus des autres éléments */
-    box-sizing: border-box;
-    /* Inclut le padding dans la hauteur totale */
-    height: 100px;
-    /* Hauteur du header */
-}
-
-/* Ajuster la hauteur de l'image dans le header */
-header>img {
-    height: 100px;
-}
-
-/* Styles de navigation */
-nav {
-    margin-left: auto;
-}
-
-nav>ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-nav>ul>li {
-    margin-left: 5px;
-    margin-right: 30px;
-}
-
-nav>ul>li>a {
-    font-family: roboto;
-    color: white;
-    text-decoration: none;
-    background-color: black;
-    padding: 10px;
-    border-radius: 5%;
-}
-
-nav>ul>li>a:hover {
-    color: wheat;
-    border-bottom: 5px solid rgb(96, 76, 76);
-    background-color: black;
-}
-
-/* Styles pour la section hero */
-.hero {
-    text-align: center;
-    padding: 5px 10px;
-    /* background-color: #ffcb05; */
-    /* Couleur de fond pour faire ressortir le titre */
-    margin-top: 100px;
-    /* Pour compenser la hauteur du header fixe */
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #000;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin: 0;
-}
-
-/* Styles pour la section formulaire */
-.form-section {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    background-color: #ffcb05;
+    /* Couleur de fond de la barre de navigation */
+    padding: 10px 20px;
+    /* Ajouter un peu de padding */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* S'assurer que la barre de navigation est au-dessus des autres éléments */
     box-sizing: border-box;
-    flex: 1;
+    /* Inclure le padding dans la largeur totale */
 }
 
-.form-content {
-    flex: 1 1 15%;
-    box-sizing: border-box;
+/* Logo dans la barre de navigation */
+header img {
+    height: 60px;
+    /* Ajuster la taille du logo selon vos besoins */
 }
 
-.form-content form {
+/* Liste et lien dans la barre de navigation */
+header li {
+    list-style: none;
+    margin: 0;
+    /* Éviter les marges par défaut de la liste */
+}
+
+/* Lien dans la barre de navigation */
+header a {
+    color: white;
+    /* Couleur du texte du lien */
+    background-color: black;
+    /* Couleur de fond du lien */
+    padding: 10px 20px;
+    /* Ajouter un peu de padding */
+    text-decoration: none;
+    /* Supprimer le soulignement du texte */
+    border-radius: 4px;
+    /* Ajouter des coins arrondis */
+    margin-left: 20px;
+    /* Ajuster la marge pour rapprocher le lien */
+}
+
+header a:hover {
+    background-color: white;
+    /* Couleur de fond au survol */
+    color: black;
+    /* Couleur du texte au survol */
+}
+
+/* Éviter la barre de défilement horizontale */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* Empêcher le défilement horizontal */
+    padding-top: 60px;
+    /* Ajouter un padding en haut pour éviter le masquage du contenu */
+    box-sizing: border-box;
+    /* Inclure le padding dans la largeur totale */
+}
+
+/* Section principale divisée en deux parties */
+.main-section {
     display: flex;
-    flex-direction: column;
+    /* Utiliser flexbox pour la mise en page */
+    justify-content: space-between;
+    /* Espacer les deux parties */
+    align-items: flex-start;
+    /* Aligner les éléments au début du conteneur */
+    padding: 20px;
+    /* Ajouter du padding autour de la section */
+    box-sizing: border-box;
+    /* Inclure le padding dans la largeur totale */
+    gap: 20px;
+    /* Ajouter un espacement entre le formulaire et l'image */
 }
 
-.form-content label {
-    margin: 10px 0 5px;
-    font-weight: bold;
+/* Conteneur du formulaire */
+.form-container {
+    flex: 1 1 40%;
+    /* Le formulaire prend 40% de la largeur disponible */
+    max-width: 40%;
+    /* Limiter la largeur maximale à 40% */
+    box-sizing: border-box;
+    /* Inclure le padding dans la largeur totale */
+    padding: 20px;
+    border: 2px solid #ffcb05;
+    /* Bordure colorée */
+    border-radius: 8px;
+    /* Coins arrondis */
+    background-color: #f4f4f4;
+    /* Couleur de fond légère */
 }
 
-.form-content input, .form-content textarea {
+/* Formulaire */
+form {
+    width: 100%;
+    /* Prendre toute la largeur disponible dans le conteneur */
+}
+
+/* Style des champs du formulaire */
+.field {
     margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input {
+    width: 100%;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.form-content textarea {
-    resize: vertical;
-}
-
-.checkbox-container {
+.checkbox {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
 }
 
-.checkbox-container input {
+.checkbox input {
     margin-right: 10px;
 }
 
-.form-content button {
-    padding: 10px 20px;
-    background-color: #ffcb05;
+.button.is-primary {
+    background-color: black;
+    color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
+    transition: background-color 0.3s;
 }
 
-.form-content button:hover {
-    background-color: #ffb700;
+.button.is-primary:hover {
+    background-color: #ffcb05;
+    color: black;
 }
 
-/* Styles pour l'image à droite du formulaire */
+/* Conteneur de l'image */
 .image-container {
-    flex: 1 1 50%;
+    flex: 1 1 60%;
+    /* L'image prend 60% de la largeur disponible */
+    max-width: 60%;
+    /* Limiter la largeur maximale à 60% */
     box-sizing: border-box;
 }
 
+/* Image dans le conteneur */
 .image-container img {
     width: 100%;
-    margin-top: 0;
-    height: 320px;
-    object-fit: cover;
+    /* Prendre toute la largeur disponible dans le conteneur */
+    height: auto;
+    /* Maintenir les proportions de l'image */
 }
 
-/* Styles pour le footer */
+/* Style du titre principal (h1) */
+.hero h1 {
+    text-align: center;
+    /* Centrer le texte */
+    font-weight: bold;
+    /* Mettre le texte en gras */
+    font-size: 2em;
+    /* Ajuster la taille de la police selon vos besoins */
+    margin: 20px 0;
+    /* Réduire l'espacement en haut et en bas */
+    color: #333;
+    /* Couleur du texte */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Ombre portée */
+}
+
+/* Style du pied de page */
 footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: #ffcb05;
-    padding: 2px 5px;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    /* Couleur de fond du pied de page */
+    padding: 10px 20px;
+    /* Ajouter du padding autour du contenu */
+    box-sizing: border-box;
+    /* Inclure le padding dans la largeur totale */
+    width: 100%;
+    /* Prendre toute la largeur de l'écran */
     position: relative;
+    /* Positionnement relatif pour le footer */
 }
 
+/* Conteneur pour le contenu du pied de page */
+.footer-content {
+    display: flex;
+    /* Utiliser flexbox pour le layout */
+    justify-content: space-between;
+    /* Espacer le texte et le logo */
+    align-items: center;
+    /* Aligner les éléments verticalement */
+    max-width: 1200px;
+    /* Limiter la largeur du conteneur */
+    margin: 0 auto;
+    /* Centrer le conteneur horizontalement */
+}
+
+/* Texte dans le pied de page */
 footer p {
     margin: 0;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #000;
-    margin-right: 15px;
+    /* Éliminer les marges par défaut */
+    color: black;
+    /* Couleur du texte */
+    font-size: 1em;
+    /* Taille de la police */
 }
 
-footer img {
-    width: 100px;
-    height: auto;
+/* Logo dans le pied de page */
+.footer-logo {
+    height: 60px;
+    /* Hauteur du logo */
 }
 
-/* Styles réactifs */
-@media (max-width: 768px) {
-    .form-section {
-        flex-direction: column;
-    }
-
-    .form-content, .image-container {
-        flex: 1 1 100%;
-    }
-
-    .image-container img {
-        width: 100%;
-        height: auto;
-    }
+/* Assurer que le pied de page reste au bas de la page */
+html, body {
+    height: 100%;
+    /* Assurer que le body prend toute la hauteur */
+    margin: 0;
+    /* Éliminer les marges par défaut */
 }
 
-#thankYouMessage {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #000;
-    margin-top: 20px;
-}
-
-/* Ajoutez cette classe à votre CSS */
-.image-container.hidden {
-    margin-top: 0;
-    /* Réduit ou supprime la marge au-dessus de l'image du logo */
-    /* Ajustez cette valeur en fonction de l'espacement souhaité */
-}
-
-/* Styles pour le bouton de menu burger */
-.menu-toggle {
-    display: none;
+body {
+    display: flex;
+    /* Utiliser flexbox pour le layout du body */
     flex-direction: column;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    z-index: 11;
+    /* Disposer les éléments en colonne */
 }
 
-.menu-icon {
-    width: 30px;
-    height: 3px;
-    background-color: black;
-    margin: 5px 0;
-    transition: 0.3s;
+main {
+    flex: 1;
+    /* Prendre l'espace disponible pour le main */
 }
 
-/* Styles pour le menu */
-#navMenu {
-    display: flex;
-    align-items: center;
-}
-
-#navMenu ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-#navMenu ul li {
-    margin-left: 5px;
-    margin-right: 30px;
-}
-
-#navMenu ul li a {
-    font-family: roboto;
-    color: white;
-    text-decoration: none;
-    background-color: black;
-    padding: 10px;
-    border-radius: 5%;
-}
-
-#navMenu ul li a:hover {
-    color: wheat;
-    border-bottom: 5px solid rgb(96, 76, 76);
-    background-color: black;
-}
-
-/* Styles réactifs */
-@media (max-width: 750px) {
-    .menu-toggle {
-        display: flex;
-        margin-left: 100px;
-        text-align: right;
-    }
-
-    #navMenu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #ffcb05;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        z-index: 10;
-    }
-
-    #navMenu.show {
-        display: flex;
-    }
-
-    #navMenu ul {
-        display: block;
-        width: 100%;
-    }
-
-    #navMenu ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    #navMenu ul li a {
-        display: block;
-        padding: 15px;
-    }
-
-    .menu-icon {
-        background-color: #000;
-    }
+/* Style du bouton lorsqu'il est désactivé */
+.button-disabled {
+    background-color: #ccc;
+    /* Couleur de fond grise pour le bouton désactivé */
+    color: #666;
+    /* Couleur du texte pour le bouton désactivé */
+    cursor: not-allowed;
+    /* Changer le curseur pour indiquer que le bouton est désactivé */
+    border: 1px solid #bbb;
+    /* Bordure plus claire pour le bouton désactivé */
 }
